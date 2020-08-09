@@ -1,0 +1,5 @@
+rootProject.name='webview_module'
+include ':app'
+include ':webview'
+include ':common'
+include ':base'
