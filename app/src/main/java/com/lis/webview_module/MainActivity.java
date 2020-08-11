@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 IWebViewService webViewService = ServiceLoaderUtil.load(IWebViewService.class);
                 if (webViewService != null) {
-                    webViewService.startWebViewActivity(MainActivity.this, "https://www.baidu.com", "百度",false);
+                    webViewService.startWebViewActivity(MainActivity.this, "https://www.baidu.com", "百度",true);
                 }
 
                 // startActivity(new Intent(MainActivity.this, WebViewActivity.class));
