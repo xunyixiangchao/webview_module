@@ -2,10 +2,12 @@
     package="com.lis.webview">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!--    usesCleartextTraffic 允许http请求-->
     <application android:usesCleartextTraffic="true">
         <activity
             android:name=".WebViewActivity"
+            android:process=":webview"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 </manifest>

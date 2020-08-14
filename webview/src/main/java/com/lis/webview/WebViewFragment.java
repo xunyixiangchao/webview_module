@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebHistoryItem;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,8 +18,6 @@ import com.lis.base.loadsir.ErrorCallback;
 import com.lis.base.loadsir.LoadingCallback;
 import com.lis.webview.databinding.FragmentWebviewBinding;
 import com.lis.webview.utils.WebViewConstants;
-import com.lis.webview.webchromeclient.MyWebChromeClient;
-import com.lis.webview.webviewclient.MyWebViewClient;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 
@@ -55,7 +52,8 @@ public class WebViewFragment extends Fragment implements WebViewCallBack, OnRefr
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_webview, container, false);
-        mBinding.webview.getSettings().setJavaScriptEnabled(true);
+
+        mBinding.webview.setWebViewCallBack(this);
         mBinding.webview.loadUrl(mUrl);
         mLoadService = LoadSir.getDefault().register(mBinding.refreshLayout, new Callback.OnReloadListener() {
             @Override
@@ -64,8 +62,6 @@ public class WebViewFragment extends Fragment implements WebViewCallBack, OnRefr
                 mBinding.webview.reload();
             }
         });
-        mBinding.webview.setWebViewClient(new MyWebViewClient(this));
-        mBinding.webview.setWebChromeClient(new MyWebChromeClient(this));
         mBinding.refreshLayout.setEnableLoadMore(false);
         mBinding.refreshLayout.setOnRefreshListener(this);
         mBinding.refreshLayout.setEnableRefresh(mCanNativeRefresh);

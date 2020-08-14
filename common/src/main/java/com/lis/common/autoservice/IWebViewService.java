@@ -5,7 +5,9 @@ import android.content.Context;
 import androidx.fragment.app.Fragment;
 
 public interface IWebViewService {
-    void startWebViewActivity(Context context,String url,String title,boolean isShowActionbar);
+    void startWebViewActivity(Context context, String url, String title, boolean isShowActionbar);
 
-    Fragment getWebViewFragment(String url,boolean canNativeRefresh);
+    Fragment getWebViewFragment(String url, boolean canNativeRefresh);
+
+    void startLocalHtml(Context context);
 }

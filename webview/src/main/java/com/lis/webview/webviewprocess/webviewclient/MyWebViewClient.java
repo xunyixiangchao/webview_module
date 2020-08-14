@@ -1,4 +1,4 @@
-package com.lis.webview.webviewclient;
+package com.lis.webview.webviewprocess.webviewclient;
 
 import android.graphics.Bitmap;
 import android.webkit.WebResourceError;

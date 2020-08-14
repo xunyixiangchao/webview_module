@@ -1,4 +1,4 @@
-package com.lis.webview.webchromeclient;
+package com.lis.webview.webviewprocess.webchromeclient;
 
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
