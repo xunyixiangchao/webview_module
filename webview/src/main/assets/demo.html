@@ -15,17 +15,37 @@
          background-color: #999999;
          margin-top: 20px;
          }
-      </style>
+
+    </style>
     <script>
         function callAppToast(){
             console.log("callAppToast.");
+            localjs.takeNativeAction("openPage", {target_class: "com.lis.webview_module.MainProcessTestActivity"});
+        }
+    </script>
+    <script>
+        function openActivityA(){
+            console.log("openActivityA.");
             localjs.takeNativeAction("showToast", {message: "this is a message from html."});
         }
-
+    </script>
+    <script>
+        function login(){
+            console.log("login.");
+            localjs.takeNativeActionWithCallback("login", {},function(res){
+            });
+        }
     </script>
     <script src="js/local.js" charset="utf-8"></script>
 </head>
 <body style="height: 100%;">
-<div class="item" style="font-size: 20px; color: #ffffff" onclick="callAppToast()">调用: showToast</div>
+<div class="item" style="font-size: 20px; color: #ffffff" onclick="openActivityA()">调用: showToast
+</div>
+<div class="item" style="font-size: 20px; color: #ffffff" onclick="callAppToast()">
+    打开MainProcessTestActivity
+</div>
+<div class="item" style="font-size: 20px; color: #ffffff" onclick="login()">
+    登录并返回结果
+</div>
 </body>
 </html>
